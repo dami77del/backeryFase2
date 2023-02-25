@@ -11,7 +11,8 @@ const CategoriesScreen = ({ navigation }) => {
 
   const handleSelectedCategory = item => {
     dispach(selectedCategory(item.id))
-    navigation.navigate('Products', {
+    navigation.navigate("Products", {
+      //categoryId: item.id,
       title: item.title,
     })
   }
@@ -23,7 +24,9 @@ const CategoriesScreen = ({ navigation }) => {
   )
   return (
     <View style={styles.container}>
-      <FlatList data={categories} renderItem={renderCategoriesItem} keyExtractor={item => item.id} />
+      <FlatList data={categories} 
+      renderItem={renderCategoriesItem} 
+      keyExtractor={item => item.id} />
     </View>
   )
 }

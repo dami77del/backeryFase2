@@ -3,25 +3,27 @@ import React, { useEffect } from 'react'
 import ProductsItem from '../components/ProductsItem'
 
 
-import { useSelector, useDispatch } from 'react-redux'
-import { selectedProduct, filterProduct } from '../store/actions/products.action'
+import { useSelector, useDispatch } from "react-redux"
+import {
+  selectedProduct,
+  filteredProduct,
+} from "../store/actions/products.action"
 
 const ProductsScreen = ({ navigation, route }) => {
-  const dispach = useDispatch()
-  const categoryProducts = useSelector((state) => state.products.filterProduct)
+  const dispatch = useDispatch()
+  const categoryProducts = useSelector(state => state.products.filteredProduct)
   const category = useSelector(state => state.categories.selected)
 
   useEffect(() => {
-    dispach(filterProduct(category.id))
+    dispatch(filteredProduct(category.id))
   }, [])
 
   const handleSelectedProduct = item => {
-    dispach(selectedProduct(item.id))
+    dispatch(selectedProduct(item.id))
     navigation.navigate("Details", {
-      name: item.name
+      name: item.name,
     })
   }
-
   const renderProductItem = ({ item }) => <ProductsItem item={item} onSelected={handleSelectedProduct} />
   return (
     <FlatList data={categoryProducts} renderItem={renderProductItem} keyExtractor={item => item.id} numColumns={2} />
