@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native
 import React from 'react'
 import CartItem from '../components/CartItem'
 import { useDispatch, useSelector } from 'react-redux'
-import { removeItem } from '../store/actions/cart.action'
+import { confirCart, removeItem } from '../store/actions/cart.action'
 
 const CartScreen = () => {
 const dispatch = useDispatch()
@@ -12,8 +12,7 @@ const total = useSelector(state=>state.cart.total)
 
   
   const handleConfirmcart =() =>{
-    console.log('confirm carrito')
-  }
+    dispatch (confirCart(items, total))}
 
   const handleDeleteItem = id =>{
     dispatch (removeItem(id))
