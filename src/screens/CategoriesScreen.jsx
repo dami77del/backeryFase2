@@ -1,4 +1,4 @@
-import { Button, FlatList, StyleSheet, Text, View, Fla } from 'react-native'
+import { FlatList, StyleSheet,View } from 'react-native'
 import React from 'react'
 import CategoriesItem from '../components/CategoriesItem'
 import {selectedCategory} from '../store/actions/category.action'
@@ -12,7 +12,6 @@ const CategoriesScreen = ({ navigation }) => {
   const handleSelectedCategory = item => {
     dispach(selectedCategory(item.id))
     navigation.navigate("Products", {
-      //categoryId: item.id,
       title: item.title,
     })
   }
