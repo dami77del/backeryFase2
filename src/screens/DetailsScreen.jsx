@@ -19,8 +19,7 @@ const dispach = useDispatch()
       <Text>{bread.name}</Text>
       <Text>{bread.description}</Text>
       <Text>{bread.price}</Text>
-      <Button title='add to cart'
-      onPress={handleAddItem}/>
+      <Button title='add to cart'onPress={handleAddItem}/>
     </View>
   )
 }
